@@ -5,12 +5,20 @@ function isAuthenticated() {
 function saveOrders() {
   chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
       var domain = new URL(tabs[0].url).hostname;
+      //Amazon
       if(domain.includes("www.amazon") == true) {
         var product_url = tabs[0].url;
-        var product_id = product_url.split("dp")[1].replace("/","").replace("/","");
-        if (product_id.includes("?")) {
-          product_id = product_id.split("?")[0];
-          alert(product_id)
+        if (product_url.includes("?") && product_url.includes("dp")) {
+          var product_id = product_url.split("dp")[1].replace("/","").replace("/","");
+          if (product_id.includes("?")) {
+            product_id = product_id.split("?")[0];
+            if(product_id.includes("ref=")) {
+              product_id = product_id.split("ref=")[0]
+            }
+            alert(product_id)
+          }
+        } else {
+          alert("Product not found...")
         }
       } else {
         alert("Domain not found...")

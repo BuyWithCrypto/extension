@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "BuyWithCrypto - Quick Purchase",
+  "description": "Pay now on the biggest online marketplaces and shops in cryptocurrency.",
+  "version": "1.0.0",
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "tabs"
+  ],
+  "browser_action": {
+    "default_icon" : "assets/img/icon.png",
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "128" : "assets/img/set_icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://www.buywithcrypto.fr/*"],
+      "js": ["assets/js/main.js"]
+    }
+  ]
+}

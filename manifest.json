@@ -1,14 +1,20 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "BuyWithCrypto - Quick Purchase",
   "description": "Pay now on the biggest online marketplaces and shops in cryptocurrency.",
   "version": "1.0.0",
   "permissions": [
-    "http://*/*",
-    "https://*/*",
-    "tabs"
+    "tabs",
+    "bookmarks"
   ],
-  "browser_action": {
+  "host_permissions": [
+    "https://www.amazon.com/",
+    "https://www.aliexpress.com/"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "action": {
     "default_icon" : "assets/img/icon.png",
     "default_popup": "index.html"
   },

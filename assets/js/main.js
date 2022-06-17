@@ -1,6 +1,21 @@
-function isAuthenticated() {
-  //verify web3 authentication
-}
+/*
+Copyright 2021 BuyWithCrypto
+Website: https://www.buywithcrypto.fr/
+Github: https://github.com/BuyWithCrypto/
+*/
+
+chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+  var domain = new URL(tabs[0].url).hostname;
+  if(domain.includes("www.amazon") == false || domain.includes("aliexpress.com") == false ) {
+    document.getElementById("statusHostname").innerHTML = "Marketplace not recognized."
+  }
+  if(domain.includes("www.amazon") == true) {
+    document.getElementById("statusHostname").innerHTML = "Amazon.com"
+  }
+  if(domain.includes("aliexpress.com") == true) {
+    document.getElementById("statusHostname").innerHTML = "AliExpress.com"
+  }
+});
 
 function saveOrders() {
   chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
@@ -50,11 +65,6 @@ function saveOrders() {
 
 function getBalance() {
   //show balance of wallet
-}
-
-function quickPay() {
-  //fast pay with DePay
-  //<script type="text/javascript" src="https://integrate.depay.fi/widgets/v6.js"></script>
 }
 
 window.addEventListener('load', async () => {

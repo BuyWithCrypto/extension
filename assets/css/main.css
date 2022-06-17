@@ -1,0 +1,14 @@
+/*
+Copyright 2021 BuyWithCrypto
+Website: https://www.buywithcrypto.fr/
+Github: https://github.com/BuyWithCrypto/
+*/
+
+html {
+  background-color: #fff;
+  width: 300px;
+  height: 200px;
+}
+h1, p {
+  text-align: center;
+}

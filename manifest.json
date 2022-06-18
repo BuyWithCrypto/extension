@@ -27,7 +27,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://www.buywithcrypto.fr/*"],
+      "matches": ["http://www.buywithcrypto.fr/*", "https://www.buywithcrypto.fr/*", "http://cdn.jsdelivr.net/*", "https://cdn.jsdelivr.net/*"],
       "run_at": "document_start",
       "js": ["assets/js/main.js"]
     }

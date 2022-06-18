@@ -22,11 +22,7 @@ function saveOrders() {
       var domain = new URL(tabs[0].url).hostname;
       //Amazon
       try {
-        if(domain.includes("www.amazon") == false || domain.includes("aliexpress.com") == false ) {
-          document.getElementById("statusHostname").innerHTML = "Marketplace not recognized."
-        }
         if(domain.includes("www.amazon") == true) {
-          document.getElementById("statusHostname").innerHTML = "Amazon.com"
           var product_url = tabs[0].url;
           if(product_url.includes("?") == true && product_url.includes("dp") == true) {
             var product_id = product_url.split("dp")[1].replace("/","").replace("/","");
@@ -38,19 +34,16 @@ function saveOrders() {
               alert(product_id)
             }
           } else {
-            document.getElementById("statusHostname").innerHTML = "Amazon.com"
             alert("Product not found...")
           }
         }
         //AliExpress
         if(domain.includes("aliexpress.com") == true) {
-          document.getElementById("statusHostname").innerHTML = "AliExpress.com"
           var product_url = tabs[0].url;
           if(product_url.includes(".html") == true && product_url.includes("/item/") == true) {
             var product_id = product_url.split("item")[1].split(".html")[0].replace("/","");
             alert(product_id)
           } else {
-            document.getElementById("statusHostname").innerHTML = "AliExpress.com"
             alert("Product not found...")
           }
         }

@@ -24,15 +24,18 @@ function saveOrders() {
       try {
         if(domain.includes("www.amazon") == true) {
           var product_url = tabs[0].url;
-          if(product_url.includes("?") == true && product_url.includes("dp") == true) {
+          if(product_url.includes("/dp/") == true) {
             var product_id = product_url.split("dp")[1].replace("/","").replace("/","");
             if(product_id.includes("?")) {
               product_id = product_id.split("?")[0];
               if(product_id.includes("ref=") == true) {
                 product_id = product_id.split("ref=")[0]
               }
-              alert(product_id)
             }
+            if(product_id.includes("ref=") == true) {
+              product_id = product_id.split("ref=")[0]
+            }
+            alert(product_id)
           } else {
             alert("Product not found...")
           }
